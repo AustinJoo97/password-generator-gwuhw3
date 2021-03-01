@@ -42,7 +42,8 @@ function enabler() {
 function copier(){
   document.getElementById("password").select();
   document.execCommand("copy");
-  alert(`Copied PW: ${document.getElementById("password").value}`);
+  alert(`Copied secure password: ${document.getElementById("password").value}
+  Please save elsewhere for later use!`);
 }
 
 generateBtn.addEventListener("click", enabler);
