@@ -14,6 +14,16 @@ let charOptions = {
 function generatePassword(){
   // Several prompts will first be given to the user to dictate the length and criteria of the desired password. This will dictate both the initial for loop to determine acceptedOptions as well as the latter for loop when the actual password is generated.
 
+  // The first prompt will determine the length of the password. If the password desired is too long (exceeds 128 characters), the password is invalid and will have no need to ask for criteria. This is why they promopt was chosen to be first
+  let pwLength = prompt(`Please enter desired password length up to 128:`)
+  while (parseInt(pwLength) !== Number){
+    pwLength = prompt(`Invalid. Please enter a number up to 128: `)
+  }
+
+  while(parseInt(pwLength) > 128){
+    pwLength = prompt(`Password length is invalid. Please enter a number up to 128`);
+  }
+
   // This array will dictate what the criteria the user has chosen and will determine which characters can be used in the password generated. Each criterium will correspond to a value between 0 and 3.
   let acceptedOptions = [];
   for(let key in charOptions){
