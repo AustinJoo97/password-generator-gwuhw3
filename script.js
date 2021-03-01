@@ -6,13 +6,14 @@ let charArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"
 
 // Coded generatePassword function to create a concatenated string using Math functions that randomly select and join 15 characters together to form a "random" password
 function generatePassword(){
-  let tempPassword;
+  let tempPassword = "";
+  let charSelector;
 
   for(let i= 0; i < 15; i++){
-    let nextChar = charArray[Math.floor(Math.random * charArray.length)]
-    tempPassword.concat(nextChar);
-    console.log(tempPassword);
+    charSelector = Math.floor(Math.random() * charArray.length)
+    tempPassword += charArray[charSelector];
   }
+  console.log(tempPassword);
 
   return tempPassword;
 }
