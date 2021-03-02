@@ -16,39 +16,45 @@ function generatePassword(){
 
   // The first prompt will determine the length of the password. If the password desired is too long (exceeds 128 characters), the password is invalid and will have no need to ask for criteria. This is why they promopt was chosen to be first.
   // A while loop was used to reassign and check if pwLength was an acceptable value to continue the user to enter a correct value until an acceptable value was entered.
+    // If the prompt is cancelled, the code discontinues and no password is generated
   // The Number() function was used as it parses a string into either an interger or a float value and returns non numerical strings as NaN
   let pwLength = prompt(`Please enter desired password length up to 128:`)
+  if(pwLength){
+    while (!Number(pwLength) || Number(pwLength) > 128){
+      pwLength = prompt(`Invalid. Please enter a number up to 128: `)
+      if(!pwLength){
+        break;
+      }
+    }
+    // This array will dictate what the criteria the user has chosen and will determine which characters can be used in the password generated. Each criterium will correspond to a value between 0 and 3.
+    let acceptedOptions = [0, 2];
+    for(let key in charOptions){
+      if(charOptions[key]){
+        acceptedOptions.push(key);
+      }
+    }
 
-  while (!Number(pwLength || Number(pwLength) > 128)){
-    pwLength = prompt(`Invalid. Please enter a number up to 128: `)
-  }
-
+    let tempPassword = "";
+    let typeSelector;
+    let charSelector;
   
-  // This array will dictate what the criteria the user has chosen and will determine which characters can be used in the password generated. Each criterium will correspond to a value between 0 and 3.
-  let acceptedOptions = [];
-  for(let key in charOptions){
-    if(charOptions[key]){
-      acceptedOptions.push(key);
+    // This for loop will iterate the number of times as determined by the user in the initial prompts asking for the desired password length. With this number, a "random" number will be chosen between 0-3 (index values corresponding to the charOptions obj) and take acceptable characters and add them to the password string.
+    for(let i= 0; i < pwLength; i++){
+      typeSelector = Math.floor(Math.random() * 4);
+      if(acceptedOptions[typeSelector]){
+      // if(typeSelector in acceptedOptions){
+        charSelector = Math.floor(Math.random() * charOptions[typeSelector].length);
+        tempPassword += charOptions[typeSelector][charSelector];
+      } else {
+        i -= 1;
+      }
     }
+  
+    return tempPassword;
+  } else {
+    return "No Password Generated"
   }
-  let tempPassword = "";
-  let typeSelector;
-  let charSelector;
-
-  // This for loop will first calculate a value within the length of Object.keys(charOptions) [this was hardcoded for now] and only if the "random" value is within the accpedOptions array will the for loop continue to add a character to the password. Otherwise, the loop will decrement and be rerun.
-  for(let i= 0; i < 15; i++){
-    typeSelector = Math.floor(Math.random() * 4);
-    if(typeSelector in acceptedOptions){
-      charSelector = Math.floor(Math.random() * charOptions[typeSelector].length);
-      tempPassword += charOptions[typeSelector][charSelector];
-    } else {
-      i -= 1;
-    }
-  }
-
-  return tempPassword;
-}
-
+} 
 
 // Write password to the #password input
 function writePassword() {
