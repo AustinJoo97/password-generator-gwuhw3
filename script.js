@@ -96,7 +96,7 @@ function enabler() {
 function copier(){
   document.getElementById("password").select();
   document.execCommand("copy");
-  alert(`Copied secure password: ${document.getElementById("password").value} \nPlease save elsewhere for later use!`);
+  alert(`Copied secure password: \n\n${document.getElementById("password").value} \n\nPlease save elsewhere for later use!`);
 }
 
 generateBtn.addEventListener("click", enabler);
