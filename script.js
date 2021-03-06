@@ -21,7 +21,7 @@ function generatePassword(){
   let pwLength = prompt(`Please enter desired password length up to 128:`);
 
   if(pwLength){
-    while (!Number(pwLength) || Number(pwLength) > 128){
+    while (!Number(pwLength) || Number(pwLength) > 128 || Number(pwLength) < 1){
       pwLength = prompt(`Invalid. Please enter a number up to 128: `)
       if(!pwLength){
         break;
