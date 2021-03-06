@@ -1,6 +1,8 @@
 # Simple RNG Password Generator
 
-## Links
+## Link
+
+https://austinjoo97.github.io/password-generator-gwuhw3/
 
 ## About the Generator
 
