@@ -20,3 +20,9 @@ Upon completing all the prompts and successfully choosing the options for their 
 Additionally, another feature was added which will, upon clicking the "Generate Password" button, make a "Copy to Clipboard" button visible. This will allow the entire textfield housing the generated password to be copied to the user's clipboard for pusposes such as saving for later use or entering the text elsewhere.
 
 ## Screenshots
+
+The first screenshot is the application's initial load. There is no chosen criteria and there is no password generated. Thus, there is also no visible copy to clipboard button.
+![GitHub Logo](./assets/before_generation.png)
+
+This second screenshot showcases the application after generating a password of length 128 and including all possible character types. As there is a password that exists, there is also now a copy to clipboard button that is usable by a user.
+![GitHub Logo](./assets/after_generation.png)
