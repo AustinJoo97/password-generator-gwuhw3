@@ -90,7 +90,7 @@ generateBtn.addEventListener("click", writePassword);
   // The first will, after generating a password by clicking the "id = generate" button, change the display of a hidden button called "id = copy"
   // The second function allows the "id = copy" button to take information from the DOM using the getElementById method to select the generated password and copy it to the clipboard in case the user would like to save it elsewhere. 
 function enabler() {
-  document.querySelector('#copy').style.display = "inline-block";
+  document.querySelector('#copy').style.cssText = "display: inline-block; background-color: blue";
 }
 
 function copier(){
