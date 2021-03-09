@@ -18,10 +18,10 @@ function generatePassword(){
   // A while loop was used to reassign and check if pwLength was an acceptable value to continue the user to enter a correct value until an acceptable value was entered.
     // If the prompt is cancelled, the code discontinues and no password is generated
   // The Number() function was used as it parses a string into either an interger or a float value and returns non numerical strings as NaN
-  let pwLength = prompt(`Please enter desired password length up to 128:`);
+  let pwLength = prompt(`Please enter desired password length between 8 and 128:`);
 
   if(pwLength){
-    while (!Number(pwLength) || Number(pwLength) > 128 || Number(pwLength) < 1){
+    while (!Number(pwLength) || Number(pwLength) > 128 || Number(pwLength) < 8){
       pwLength = prompt(`Invalid. Please enter a number up to 128: `)
       if(!pwLength){
         break;
